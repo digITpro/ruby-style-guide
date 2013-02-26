@@ -141,32 +141,6 @@ Translations of the guide are available in the following languages:
     [1, 2, 3].length
     ```
 
-* Indent `when` as deep as `case`. I know that many would disagree
-  with this one, but it's the style established in both "The Ruby
-  Programming Language" and "Programming Ruby".
-
-    ```Ruby
-    case
-    when song.name == 'Misty'
-      puts 'Not again!'
-    when song.duration > 120
-      puts 'Too long!'
-    when Time.now.hour > 21
-      puts "It's too late"
-    else
-      song.play
-    end
-
-    kind = case year
-           when 1850..1889 then 'Blues'
-           when 1890..1909 then 'Ragtime'
-           when 1910..1929 then 'New Orleans Jazz'
-           when 1930..1939 then 'Swing'
-           when 1940..1950 then 'Bebop'
-           else 'Jazz'
-           end
-    ```
-
 * Use empty lines between `def`s and to break up a method into logical
   paragraphs.
 
