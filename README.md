@@ -205,7 +205,7 @@ Translations of the guide are available in the following languages:
 
 * Use RDoc and its conventions for API documentation.  Don't put an
   empty line between the comment block and the `def`.
-* Limit lines to 80 characters.
+* Limit lines to 120 characters.
 * Avoid trailing whitespace.
 
 ## Syntax
@@ -802,23 +802,6 @@ at all.
 * Try to make your classes as
   [SOLID](http://en.wikipedia.org/wiki/SOLID_(object-oriented_design\))
   as possible.
-* Always supply a proper `to_s` method for classes that represent
-  domain objects.
-
-    ```Ruby
-    class Person
-      attr_reader :first_name, :last_name
-
-      def initialize(first_name, last_name)
-        @first_name = first_name
-        @last_name = last_name
-      end
-
-      def to_s
-        "#@first_name #@last_name"
-      end
-    end
-    ```
 
 * Use the `attr` family of functions to define trivial accessors or
 mutators.
@@ -1273,18 +1256,11 @@ strings.
     email_with_name = "#{user.name} <#{user.email}>"
     ```
 
-* Consider padding string interpolation code with space. It more clearly sets the
-  code apart from the string.
-
-    ```Ruby
-    "#{ user.last_name }, #{ user.first_name }"
-    ```
-
 * Prefer single-quoted strings when you don't need string interpolation or
   special symbols such as `\t`, `\n`, `'`, etc.
 
     ```Ruby
-    # bad
+    # good
     name = "Bozhidar"
 
     # good
@@ -1308,7 +1284,7 @@ strings.
         "#{@first_name} #{@last_name}"
       end
 
-      # good
+      # okay
       def to_s
         "#@first_name #@last_name"
       end
@@ -1401,6 +1377,12 @@ strings.
 
     ```Ruby
     STATES = %w(draft open closed)
+    ```
+
+* freeze your constants
+   
+    ```Ruby
+    STATES = %w(draft open closed).freeze
     ```
 
 * Use `%()` for single-line strings which require both interpolation
